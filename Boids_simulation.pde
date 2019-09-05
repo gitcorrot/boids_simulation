@@ -2,13 +2,13 @@
 
 Boid b;
 
-final int sightRange = 75;
+final int sightRange = 100;
 final int speed = 3;
 final int populationSize = 50;
 Boid[] flock;
 
 void setup() {
-  size(800, 800);
+  size(1200, 800);
 
   // instantiate flock
   flock = new Boid[populationSize];
@@ -18,7 +18,7 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  background(150,180,225, 10);
   translate(width/2, height/2);
   rectMode(CENTER);
   for (int i = 0; i < populationSize; i++) {
