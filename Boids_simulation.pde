@@ -2,9 +2,9 @@
 
 Boid b;
 
-final int sightRange = 150;
+final int sightRange = 75;
 final int speed = 3;
-final int populationSize = 10;
+final int populationSize = 50;
 Boid[] flock;
 
 void setup() {
@@ -25,4 +25,15 @@ void draw() {
     flock[i].update();
     flock[i].show();
   }
+}
+
+public ArrayList<Boid> findBoidsInRange(Boid boid) {
+  ArrayList<Boid> boidsInRange = new ArrayList<Boid>();
+
+  for (int i = 0; i < populationSize; i++) {
+    if (flock[i] != boid && PVector.dist(flock[i].pos, boid.pos) < sightRange) {
+      boidsInRange.add(flock[i]);
+    }
+  }
+  return boidsInRange;
 }
